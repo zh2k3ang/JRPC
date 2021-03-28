@@ -1,14 +1,17 @@
 package com.zh2k3ang.jrpc.demo.client;
 
-import com.zh2k3ang.jrpc.entities.RpcServiceProperties;
-import com.zh2k3ang.jrpc.remoting.transport.RpcRequestTransport;
-import com.zh2k3ang.jrpc.remoting.transport.socket.SocketRpcClient;
+import com.zh2k3ang.jrpc.client.proxy.RpcServiceProxy;
+import com.zh2k3ang.jrpc.common.entities.RpcServiceProperties;
+import com.zh2k3ang.jrpc.demo.api.HelloService;
 
 public class SocketRpcClientMain {
 
     public static void main(String[] args) {
         RpcServiceProperties properties = RpcServiceProperties.builder()
-                .group("zh2k3ang").version("v1").serviceName("hello").build();
-        RpcRequestTransport socketRpcClient = new SocketRpcClient();
+                .group("zh2k3ang").version("v1").build();
+        RpcServiceProxy proxy = new RpcServiceProxy(properties);
+        HelloService helloService = proxy.getProxy(HelloService.class);
+        String res = helloService.hello("nice to meet you");
+        System.out.println(res);
     }
 }
