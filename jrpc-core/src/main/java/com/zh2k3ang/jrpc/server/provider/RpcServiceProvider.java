@@ -3,8 +3,8 @@ package com.zh2k3ang.jrpc.server.provider;
 import com.zh2k3ang.jrpc.common.entities.RpcServiceProperties;
 import com.zh2k3ang.jrpc.common.enums.RpcErrorMessageEnum;
 import com.zh2k3ang.jrpc.common.exceptions.RpcException;
-import com.zh2k3ang.jrpc.registry.ServiceRegistry;
-import com.zh2k3ang.jrpc.registry.zk.ZKServiceRegistry;
+import com.zh2k3ang.jrpc.server.registry.ServiceRegistry;
+import com.zh2k3ang.jrpc.server.registry.ZKServiceRegistry;
 import com.zh2k3ang.jrpc.server.transport.RpcServerTransport;
 import com.zh2k3ang.jrpc.server.transport.SocketRpcServerTransport;
 

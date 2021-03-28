@@ -1,4 +1,4 @@
-package com.zh2k3ang.jrpc.registry;
+package com.zh2k3ang.jrpc.client.discovery;
 
 import java.net.InetSocketAddress;
 

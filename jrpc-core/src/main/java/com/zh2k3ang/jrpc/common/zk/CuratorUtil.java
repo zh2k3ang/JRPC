@@ -1,5 +1,9 @@
-package com.zh2k3ang.jrpc.registry.zk.utils;
+package com.zh2k3ang.jrpc.common.zk;
 
+import com.zh2k3ang.jrpc.common.enums.RpcErrorMessageEnum;
+import com.zh2k3ang.jrpc.common.enums.RpcPropertyEnum;
+import com.zh2k3ang.jrpc.common.exceptions.RpcException;
+import com.zh2k3ang.jrpc.common.utils.PropertyUtil;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
@@ -8,6 +12,7 @@ import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
 
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class CuratorUtil {
@@ -19,9 +24,15 @@ public class CuratorUtil {
     private CuratorUtil(){}
 
     public static CuratorFramework getClient() {
+
+        Properties properties = PropertyUtil.readPropertiesFile(RpcPropertyEnum.PRC_CONFIG_PATH.getPropertyValue());
+        if(properties == null || properties.getProperty(RpcPropertyEnum.ZK_ADDRESS.getPropertyValue())==null)
+            throw new RpcException(RpcErrorMessageEnum.SERVICE_NOT_FOUND, "can not find zookeeper address");
+
+        String address = properties.getProperty(RpcPropertyEnum.ZK_ADDRESS.getPropertyValue());
         RetryPolicy policy = new ExponentialBackoffRetry(BASE_SLEEP_TIME, MAX_RETRIES);
         client = CuratorFrameworkFactory.builder()
-                .connectString("49.235.55.170:2181")
+                .connectString(address)
                 .retryPolicy(policy)
                 .build();
         client.start();

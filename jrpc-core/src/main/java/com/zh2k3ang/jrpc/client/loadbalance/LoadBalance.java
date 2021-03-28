@@ -1,4 +1,4 @@
-package com.zh2k3ang.jrpc.registry.loadbalance;
+package com.zh2k3ang.jrpc.client.loadbalance;
 
 import java.util.List;
 

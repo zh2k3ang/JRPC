@@ -2,12 +2,12 @@ package com.zh2k3ang.jrpc.client.proxy;
 
 import com.zh2k3ang.jrpc.client.transport.RpcClientTransport;
 import com.zh2k3ang.jrpc.client.transport.SocketRpcClientTransport;
-import com.zh2k3ang.jrpc.registry.loadbalance.LoadBalance;
+import com.zh2k3ang.jrpc.client.loadbalance.LoadBalance;
 import com.zh2k3ang.jrpc.common.dto.RpcRequest;
 import com.zh2k3ang.jrpc.common.dto.RpcResponse;
 import com.zh2k3ang.jrpc.common.entities.RpcServiceProperties;
-import com.zh2k3ang.jrpc.registry.ServiceDiscovery;
-import com.zh2k3ang.jrpc.registry.zk.ZKServiceDiscovery;
+import com.zh2k3ang.jrpc.client.discovery.ServiceDiscovery;
+import com.zh2k3ang.jrpc.client.discovery.ZKServiceDiscovery;
 import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.InvocationHandler;

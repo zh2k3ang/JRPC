@@ -1,10 +1,11 @@
-package com.zh2k3ang.jrpc.registry.zk;
+package com.zh2k3ang.jrpc.client.discovery;
 
-import com.zh2k3ang.jrpc.registry.loadbalance.LoadBalance;
-import com.zh2k3ang.jrpc.registry.ServiceDiscovery;
-import com.zh2k3ang.jrpc.registry.loadbalance.TestLoadBalance;
-import com.zh2k3ang.jrpc.registry.zk.utils.CuratorUtil;
-import lombok.extern.slf4j.Slf4j;
+import com.zh2k3ang.jrpc.client.loadbalance.ConsistentHashLoadBalance;
+import com.zh2k3ang.jrpc.client.loadbalance.LoadBalance;
+import com.zh2k3ang.jrpc.client.loadbalance.RandomLoadBalance;
+import com.zh2k3ang.jrpc.client.loadbalance.RoundRobinLoadBalance;
+import com.zh2k3ang.jrpc.common.zk.CuratorUtil;
+import com.zh2k3ang.jrpc.server.registry.ZKServiceRegistry;
 import org.apache.curator.framework.CuratorFramework;
 
 import java.net.InetSocketAddress;
@@ -15,7 +16,7 @@ public class ZKServiceDiscovery implements ServiceDiscovery {
     private LoadBalance loadBalance;
 
     public ZKServiceDiscovery() {
-        this.loadBalance = new TestLoadBalance();
+        this.loadBalance = new ConsistentHashLoadBalance();
     }
 
     public ZKServiceDiscovery(LoadBalance loadBalance) {

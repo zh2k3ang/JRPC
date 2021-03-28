@@ -1,7 +1,6 @@
-package com.zh2k3ang.jrpc.registry.zk;
+package com.zh2k3ang.jrpc.server.registry;
 
-import com.zh2k3ang.jrpc.registry.ServiceRegistry;
-import com.zh2k3ang.jrpc.registry.zk.utils.CuratorUtil;
+import com.zh2k3ang.jrpc.common.zk.CuratorUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
 
