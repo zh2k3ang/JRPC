@@ -2,9 +2,7 @@ package com.zh2k3ang.jrpc.client.discovery;
 
 import com.zh2k3ang.jrpc.client.loadbalance.ConsistentHashLoadBalance;
 import com.zh2k3ang.jrpc.client.loadbalance.LoadBalance;
-import com.zh2k3ang.jrpc.client.loadbalance.RandomLoadBalance;
-import com.zh2k3ang.jrpc.client.loadbalance.RoundRobinLoadBalance;
-import com.zh2k3ang.jrpc.common.zk.CuratorUtil;
+import com.zh2k3ang.jrpc.common.util.CuratorUtil;
 import com.zh2k3ang.jrpc.server.registry.ZKServiceRegistry;
 import org.apache.curator.framework.CuratorFramework;
 

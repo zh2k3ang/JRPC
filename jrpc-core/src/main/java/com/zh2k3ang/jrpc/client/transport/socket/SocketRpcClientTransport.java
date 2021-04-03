@@ -1,6 +1,7 @@
-package com.zh2k3ang.jrpc.client.transport;
+package com.zh2k3ang.jrpc.client.transport.socket;
 
-import com.zh2k3ang.jrpc.common.dto.RpcRequest;
+import com.zh2k3ang.jrpc.client.transport.RpcClientTransport;
+import com.zh2k3ang.jrpc.common.protocol.RpcRequest;
 import com.zh2k3ang.jrpc.common.enums.RpcErrorMessageEnum;
 import com.zh2k3ang.jrpc.common.exceptions.RpcException;
 

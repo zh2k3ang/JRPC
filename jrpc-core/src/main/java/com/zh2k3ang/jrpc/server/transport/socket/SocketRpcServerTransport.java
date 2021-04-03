@@ -1,7 +1,6 @@
-package com.zh2k3ang.jrpc.server.transport;
+package com.zh2k3ang.jrpc.server.transport.socket;
 
-import com.zh2k3ang.jrpc.common.entities.RpcServiceProperties;
-import com.zh2k3ang.jrpc.server.provider.RpcServiceProvider;
+import com.zh2k3ang.jrpc.server.transport.RpcServerTransport;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;

@@ -4,7 +4,7 @@ import com.zh2k3ang.jrpc.client.proxy.RpcServiceProxy;
 import com.zh2k3ang.jrpc.common.entities.RpcServiceProperties;
 import com.zh2k3ang.jrpc.demo.api.HelloService;
 
-public class SocketRpcClientMain {
+public class RpcClientMain {
 
     public static void main(String[] args) {
         RpcServiceProperties properties = RpcServiceProperties.builder()

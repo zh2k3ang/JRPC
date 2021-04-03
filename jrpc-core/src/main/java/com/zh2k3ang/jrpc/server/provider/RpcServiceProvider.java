@@ -3,11 +3,14 @@ package com.zh2k3ang.jrpc.server.provider;
 import com.zh2k3ang.jrpc.common.entities.RpcServiceProperties;
 import com.zh2k3ang.jrpc.common.enums.RpcErrorMessageEnum;
 import com.zh2k3ang.jrpc.common.exceptions.RpcException;
+import com.zh2k3ang.jrpc.common.protocol.RpcRequest;
 import com.zh2k3ang.jrpc.server.registry.ServiceRegistry;
 import com.zh2k3ang.jrpc.server.registry.ZKServiceRegistry;
 import com.zh2k3ang.jrpc.server.transport.RpcServerTransport;
-import com.zh2k3ang.jrpc.server.transport.SocketRpcServerTransport;
+import com.zh2k3ang.jrpc.server.transport.netty.NettyRpcServerTransport;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.InetSocketAddress;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -24,7 +27,7 @@ public class RpcServiceProvider {
     }
 
     private RpcServiceProvider() {
-        server = new SocketRpcServerTransport();
+        server = new NettyRpcServerTransport();
         serviceMap = new ConcurrentHashMap<>();
         serviceRegistry = new ZKServiceRegistry();
     }
@@ -51,6 +54,18 @@ public class RpcServiceProvider {
         rpcServiceProperties.setServiceName(serviceName);
         this.addService(service, serviceInterface, rpcServiceProperties);
         serviceRegistry.registerService(rpcServiceProperties.toRpcServiceName(), new InetSocketAddress("127.0.0.1", 8000));
+    }
+
+    public Object handle(RpcRequest request) {
+        Object service = getService(request.toRpcServiceProperties());
+        Object result = null;
+        try {
+            Method method =service.getClass().getMethod(request.getMethodName(), request.getParamTypes());
+            result = method.invoke(service, request.getParams());
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     public void start(String ip, int port) {

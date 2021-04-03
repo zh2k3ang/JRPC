@@ -5,7 +5,7 @@ import com.zh2k3ang.jrpc.demo.api.HelloService;
 import com.zh2k3ang.jrpc.demo.server.services.HelloServiceImpl;
 import com.zh2k3ang.jrpc.server.provider.RpcServiceProvider;
 
-public class SocketRpcServerMain {
+public class RpcServerMain {
 
     public static void main(String[] args) {
 

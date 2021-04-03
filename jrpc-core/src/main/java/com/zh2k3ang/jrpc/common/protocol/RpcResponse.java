@@ -1,4 +1,4 @@
-package com.zh2k3ang.jrpc.common.dto;
+package com.zh2k3ang.jrpc.common.protocol;
 
 import com.zh2k3ang.jrpc.common.enums.RpcResponseCodeEnum;
 import lombok.*;
@@ -29,10 +29,10 @@ public class RpcResponse<T> implements Serializable {
         return response;
     }
 
-    public static <T> RpcResponse<T> fail() {
+    public static <T> RpcResponse<T> fail(RpcResponseCodeEnum rpcResponseCodeEnum) {
         RpcResponse<T> response =new RpcResponse<T>();
-        response.setCode(RpcResponseCodeEnum.SUCCESS.getCode());
-        response.setMessage(RpcResponseCodeEnum.SUCCESS.getMessage());
+        response.setCode(rpcResponseCodeEnum.getCode());
+        response.setMessage(rpcResponseCodeEnum.getMessage());
         return response;
     }
 }

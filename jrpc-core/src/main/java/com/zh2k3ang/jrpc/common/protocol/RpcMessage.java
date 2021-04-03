@@ -1,4 +1,4 @@
-package com.zh2k3ang.jrpc.common.dto;
+package com.zh2k3ang.jrpc.common.protocol;
 
 import lombok.*;
 

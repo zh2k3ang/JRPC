@@ -1,9 +1,9 @@
-package com.zh2k3ang.jrpc.common.zk;
+package com.zh2k3ang.jrpc.common.util;
 
 import com.zh2k3ang.jrpc.common.enums.RpcErrorMessageEnum;
 import com.zh2k3ang.jrpc.common.enums.RpcPropertyEnum;
 import com.zh2k3ang.jrpc.common.exceptions.RpcException;
-import com.zh2k3ang.jrpc.common.utils.PropertyUtil;
+import com.zh2k3ang.jrpc.common.util.PropertyUtil;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;

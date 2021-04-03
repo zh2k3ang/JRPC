@@ -1,4 +1,4 @@
-package com.zh2k3ang.jrpc.common.utils;
+package com.zh2k3ang.jrpc.common.util;
 
 import lombok.extern.slf4j.Slf4j;
 

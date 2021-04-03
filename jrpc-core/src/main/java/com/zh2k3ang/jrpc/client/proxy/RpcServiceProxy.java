@@ -1,10 +1,10 @@
 package com.zh2k3ang.jrpc.client.proxy;
 
+import com.zh2k3ang.jrpc.client.transport.netty.NettyRpcClientTransport;
 import com.zh2k3ang.jrpc.client.transport.RpcClientTransport;
-import com.zh2k3ang.jrpc.client.transport.SocketRpcClientTransport;
 import com.zh2k3ang.jrpc.client.loadbalance.LoadBalance;
-import com.zh2k3ang.jrpc.common.dto.RpcRequest;
-import com.zh2k3ang.jrpc.common.dto.RpcResponse;
+import com.zh2k3ang.jrpc.common.protocol.RpcRequest;
+import com.zh2k3ang.jrpc.common.protocol.RpcResponse;
 import com.zh2k3ang.jrpc.common.entities.RpcServiceProperties;
 import com.zh2k3ang.jrpc.client.discovery.ServiceDiscovery;
 import com.zh2k3ang.jrpc.client.discovery.ZKServiceDiscovery;
@@ -25,7 +25,8 @@ public class RpcServiceProxy implements InvocationHandler {
 
     public RpcServiceProxy(RpcServiceProperties serviceProperties) {
         this.serviceProperties = serviceProperties;
-        this.transport = new SocketRpcClientTransport();
+//        this.transport = new SocketRpcClientTransport();
+        this.transport = new NettyRpcClientTransport();
         this.serviceDiscovery = new ZKServiceDiscovery();
     }
 
